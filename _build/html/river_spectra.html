@@ -131,6 +131,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="rating_curve.html">
+   Rating curve for stream discharge and hydrographs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="BOD1.html">
    Water quality modeling - BOD in rivers (I)
   </a>
@@ -461,8 +466,8 @@ title="Print to PDF"
 <h2>An example<a class="headerlink" href="#an-example" title="Permalink to this headline">#</a></h2>
 <p>Let’s start with a simple example to understand how spectral analysis works. If we have a series of data that follows a sines wave as a function of time:</p>
 <div class="math notranslate nohighlight" id="equation-sig">
-<span class="eqno">(15)<a class="headerlink" href="#equation-sig" title="Permalink to this equation">#</a></span>\[u = A \sin(\omega t + \phi)\]</div>
-<p>where amplitude <span class="math notranslate nohighlight">\(A\)</span> = 0.2, angular frequency <span class="math notranslate nohighlight">\(\omega = 2 \pi f\)</span> with <span class="math notranslate nohighlight">\(f = 0.5\)</span> Hz being the frequency, and phase <span class="math notranslate nohighlight">\(\phi=0\)</span>. If we have a sensor to measure the signal at sample rate of 100 Hz for 10 seconds. We can express every time snapshot in a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array (<span class="math notranslate nohighlight">\(t\)</span>), and calculate the data (<span class="math notranslate nohighlight">\(u\)</span>) from Eq. <a class="reference internal" href="#equation-sig">(15)</a>:</p>
+<span class="eqno">(16)<a class="headerlink" href="#equation-sig" title="Permalink to this equation">#</a></span>\[u = A \sin(\omega t + \phi)\]</div>
+<p>where amplitude <span class="math notranslate nohighlight">\(A\)</span> = 0.2, angular frequency <span class="math notranslate nohighlight">\(\omega = 2 \pi f\)</span> with <span class="math notranslate nohighlight">\(f = 0.5\)</span> Hz being the frequency, and phase <span class="math notranslate nohighlight">\(\phi=0\)</span>. If we have a sensor to measure the signal at sample rate of 100 Hz for 10 seconds. We can express every time snapshot in a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array (<span class="math notranslate nohighlight">\(t\)</span>), and calculate the data (<span class="math notranslate nohighlight">\(u\)</span>) from Eq. <a class="reference internal" href="#equation-sig">(16)</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -506,8 +511,8 @@ title="Print to PDF"
 </div>
 </div>
 <p>The above plot is called periodogram, which is essentially the spectral density (or power) of the signal:</p>
-<div class="admonition-box-question-1 admonition">
-<p class="admonition-title">Box question 1</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
 <p>In your own plot, observe two variables: (1) the frequency of the peak spectral density (power), and (2) the maximal frequency on the <span class="math notranslate nohighlight">\(x\)</span>-axis, i.e., the maximal resolved frequency in the data. Change the sample rate in your code, do you observe changes in the above two variables in your plot?</p>
 </div>
 <p>Now, let’s add some random noise to the signal and keep the noise level quite small (10% of its actual amplitude):</p>
@@ -519,12 +524,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="admonition-box-question-2 admonition">
-<p class="admonition-title">Box question 2</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
 <p>Plot the new data set (u vs. t), and repeat spectral analysis. What difference do you observe in your periodogram plot?</p>
 </div>
-<div class="admonition-box-question-3 admonition">
-<p class="admonition-title">Box question 3</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
 <p>Let’s superimpose a secondary signal <span class="math notranslate nohighlight">\(u_2 = 0.5 A \sin(2\pi f t)\)</span> with frequency of <span class="math notranslate nohighlight">\(f=5\)</span> Hz to the data after adding noise, so that the new data <span class="math notranslate nohighlight">\(u_n = u + u_2\)</span>,  plot <span class="math notranslate nohighlight">\(u_n\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span> and perform a spectral analysis to the new data.</p>
 </div>
 </section>

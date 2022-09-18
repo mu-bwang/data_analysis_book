@@ -132,6 +132,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="rating_curve.html">
+   Rating curve for stream discharge and hydrographs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="BOD1.html">
    Water quality modeling - BOD in rivers (I)
   </a>
@@ -139,6 +144,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="BOD2.html">
    Water quality modeling - BOD in rivers (II)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="river_spectra.html">
+   Spectral analysis of river discharge data
   </a>
  </li>
 </ul>
@@ -373,12 +383,12 @@ title="Print to PDF"
 <h2>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this headline">#</a></h2>
 <p>Settling of sediment particles are an important physical process to the sediment suspension, mixing, and transport. Modeling of the settling velocity of a sediment particle is essential to the models of river mechanics and sediment related hydraulic design.</p>
 <p>The velocity (<span class="math notranslate nohighlight">\(W\)</span>) of a single particle settling in water can be predicted by the equilibrium between its gravity, buoyancy, and drag forces, where gravitational force is <span class="math notranslate nohighlight">\(F_G = \rho_p g V\)</span> (downward), buoyancy force <span class="math notranslate nohighlight">\(F_B = \rho gV\)</span> (upward), and drag force <span class="math notranslate nohighlight">\(F_D\)</span> (upward). When the particle is very small, the drag force is related to the viscosity of the water <span class="math notranslate nohighlight">\(\mu\)</span>, particle size, and the settling velocity, <span class="math notranslate nohighlight">\(F_D = 3\pi\mu D W\)</span>. In fluid mechanics, we call this the Stokes regime, and the drag is call Stokes drag. Once we know the particle size, the settling velocity can be easily calculated by applying free body diagram to the sediment particle.</p>
-<div class="admonition-box-question-1 admonition">
-<p class="admonition-title">Box question 1</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
 <p>Derive the equation for the settling velocity, and write a small program to calculate the settling velocity of sand particles with diameter ranging from 1 <span class="math notranslate nohighlight">\(\mu\)</span>m to 100 <span class="math notranslate nohighlight">\(\mu\)</span>m (taking <span class="math notranslate nohighlight">\(\rho_p = 1600\)</span> kg/m<span class="math notranslate nohighlight">\(^3\)</span>, <span class="math notranslate nohighlight">\(\rho = 1000\)</span> kg/m<span class="math notranslate nohighlight">\(^3\)</span>, <span class="math notranslate nohighlight">\(g = 9.81\)</span> m/s<span class="math notranslate nohighlight">\(^2\)</span>, <span class="math notranslate nohighlight">\(\mu = \nu \rho = 1.0\times10^{-3}\)</span> Pa s). Plot the settling velocity vs. sand diameter with appropriate label and units.</p>
 </div>
-<div class="admonition-box-question-2 admonition">
-<p class="admonition-title">Box question 2</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
 <p>Box question 2: Here we restrict the sand particle to be tiny because we want to ensure the particle within the Stokes regime, i.e., <span class="math notranslate nohighlight">\(Re &lt; 1\)</span>. In your code, add a few lines to calculate Reynolds number and check if Re in the above question is within the Stokes regime.</p>
 </div>
 <div class="admonition tip">

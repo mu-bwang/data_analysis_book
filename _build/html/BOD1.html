@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Water quality modeling - BOD in rivers (II)" href="BOD2.html" />
-    <link rel="prev" title="Particle Settling in Water (II)" href="particle_settling2.html" />
+    <link rel="prev" title="Rating curve for stream discharge and hydrographs" href="rating_curve.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -131,6 +131,11 @@ const thebe_selector_output = ".output, .cell_output"
    Particle Settling in Water (II)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rating_curve.html">
+   Rating curve for stream discharge and hydrographs
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Water quality modeling - BOD in rivers (I)
@@ -139,6 +144,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="BOD2.html">
    Water quality modeling - BOD in rivers (II)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="river_spectra.html">
+   Spectral analysis of river discharge data
   </a>
  </li>
 </ul>
@@ -397,12 +407,12 @@ title="Print to PDF"
 <h2>A simple exponential decay model<a class="headerlink" href="#a-simple-exponential-decay-model" title="Permalink to this headline">#</a></h2>
 <p>If conventional pollutant are discharged into rivers or streams, the concentration of pollutant in the river may be concerned, and it would be a function of distance in the downstream away from the source of the pollutant. The relationship between the pollutant concentration and the downstream distance must be a function of flow velocity and the rate of decay of pollutant in the receiving water. A simple mass balance model can be used to describe this process and the solution for the pollutant concentration (<span class="math notranslate nohighlight">\(C\)</span>) is an exponential decay function:</p>
 <div class="math notranslate nohighlight" id="equation-decay">
-<span class="eqno">(7)<a class="headerlink" href="#equation-decay" title="Permalink to this equation">#</a></span>\[C = C_0 \exp(-kx/u)\]</div>
+<span class="eqno">(8)<a class="headerlink" href="#equation-decay" title="Permalink to this equation">#</a></span>\[C = C_0 \exp(-kx/u)\]</div>
 <p>where <span class="math notranslate nohighlight">\(C_0\)</span> is the source concentration, <span class="math notranslate nohighlight">\(u\)</span> is flow velocity, <span class="math notranslate nohighlight">\(k\)</span> is the decaying rate, and <span class="math notranslate nohighlight">\(x\)</span> is the downstream distance.</p>
 <p>If we have a following BOD data set measured at various locations of a stream with a pollutant discharge at the initial BOD concentration is 10 mg/L.</p>
 <a class="reference internal image-reference" href="_images/BOD_table.png"><img alt="_images/BOD_table.png" class="align-center" src="_images/BOD_table.png" style="width: 200px;" /></a>
-<div class="admonition-box-question-1 admonition">
-<p class="admonition-title">Box question 1</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
 <p>Plot the BOD concentration as a function of <span class="math notranslate nohighlight">\(x\)</span> using above data, and determine the degradation rate of BOD in the stream. The mean velocity of the stream is 0.4 m/s.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -418,22 +428,22 @@ title="Print to PDF"
 <h2>Streeter-Phelps equation<a class="headerlink" href="#streeter-phelps-equation" title="Permalink to this headline">#</a></h2>
 <p>The above example shows a steady state stream with a first-order decaying of BOD concentration at a constant decaying rate. We also neglect the reaeration process in the above example. To include reaeration, Streeter and Phelps developed a simple mass balance equation to account for the opposite process of deoxygenation in reaeration process, known as Streeter-Phelps equation:</p>
 <div class="math notranslate nohighlight" id="equation-c-eq">
-<span class="eqno">(8)<a class="headerlink" href="#equation-c-eq" title="Permalink to this equation">#</a></span>\[u\frac{dC}{dx} = -k_d L + k_a(C_s - C)\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-c-eq" title="Permalink to this equation">#</a></span>\[u\frac{dC}{dx} = -k_d L + k_a(C_s - C)\]</div>
 <p>where <span class="math notranslate nohighlight">\(C\)</span> is DO concentration, <span class="math notranslate nohighlight">\(L\)</span> is BOD concentration, <span class="math notranslate nohighlight">\(C_s\)</span> is saturated DO concentration, and <span class="math notranslate nohighlight">\(k_d\)</span> and <span class="math notranslate nohighlight">\(k_a\)</span> are rate of deoxygenation and reaeration, respectively. This equation can also be written in the format of DO deficit equation:</p>
 <div class="math notranslate nohighlight" id="equation-d-eq">
-<span class="eqno">(9)<a class="headerlink" href="#equation-d-eq" title="Permalink to this equation">#</a></span>\[u\frac{dD}{dx} = k_d L - k_a D\]</div>
+<span class="eqno">(10)<a class="headerlink" href="#equation-d-eq" title="Permalink to this equation">#</a></span>\[u\frac{dD}{dx} = k_d L - k_a D\]</div>
 <p>We have shown that BOD concentration is exponentially decaying in the stream, giving:</p>
 <div class="math notranslate nohighlight" id="equation-l">
-<span class="eqno">(10)<a class="headerlink" href="#equation-l" title="Permalink to this equation">#</a></span>\[L = L_0 \exp(-k_d x/u)\]</div>
+<span class="eqno">(11)<a class="headerlink" href="#equation-l" title="Permalink to this equation">#</a></span>\[L = L_0 \exp(-k_d x/u)\]</div>
 <p>where <span class="math notranslate nohighlight">\(L_0\)</span> is the ultimate BOD, i.e., initial oxygen demand.</p>
-<p>Substituting Eq.<a class="reference internal" href="#equation-l">(10)</a> into Eq. <a class="reference internal" href="#equation-d-eq">(9)</a>, we have:</p>
+<p>Substituting Eq.<a class="reference internal" href="#equation-l">(11)</a> into Eq. <a class="reference internal" href="#equation-d-eq">(10)</a>, we have:</p>
 <div class="math notranslate nohighlight" id="equation-d-eq2">
-<span class="eqno">(11)<a class="headerlink" href="#equation-d-eq2" title="Permalink to this equation">#</a></span>\[u\frac{dD}{dx} = k_d L_0 \exp(-k_d x/u) - k_a D\]</div>
-<p>We can solve Eq. <a class="reference internal" href="#equation-d-eq2">(11)</a> to obtain the DO deficit as a function of downstream distance in a stream.</p>
+<span class="eqno">(12)<a class="headerlink" href="#equation-d-eq2" title="Permalink to this equation">#</a></span>\[u\frac{dD}{dx} = k_d L_0 \exp(-k_d x/u) - k_a D\]</div>
+<p>We can solve Eq. <a class="reference internal" href="#equation-d-eq2">(12)</a> to obtain the DO deficit as a function of downstream distance in a stream.</p>
 </section>
 <section id="take-home-work">
 <h2>Take-home work<a class="headerlink" href="#take-home-work" title="Permalink to this headline">#</a></h2>
-<p>Write a computer program to solve Eq. <a class="reference internal" href="#equation-d-eq2">(11)</a> using following parameters:</p>
+<p>Write a computer program to solve Eq. <a class="reference internal" href="#equation-d-eq2">(12)</a> using following parameters:</p>
 <div class="admonition-parameters admonition">
 <p class="admonition-title">Parameters</p>
 <p>deoxygenation rate: <span class="math notranslate nohighlight">\(k_d = 0.3\)</span> /day;
@@ -444,7 +454,7 @@ saturation DO concentration: <span class="math notranslate nohighlight">\(C_s\)<
 flow velocity <span class="math notranslate nohighlight">\(u\)</span> = 0.4 m/s.</p>
 </div>
 <ol class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code> solver to solve the ODE Eq. <a class="reference internal" href="#equation-d-eq2">(11)</a> for <span class="math notranslate nohighlight">\(x\)</span> from the source to 500 km downstream.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.odeint</span></code> solver to solve the ODE Eq. <a class="reference internal" href="#equation-d-eq2">(12)</a> for <span class="math notranslate nohighlight">\(x\)</span> from the source to 500 km downstream.</p></li>
 <li><p>Plot DO deficit as a function of <span class="math notranslate nohighlight">\(x\)</span> (Your figure 1).</p></li>
 <li><p>In a second figure (Your figure 2), plot DO concentration as a function of <span class="math notranslate nohighlight">\(x\)</span>. Meanwhile, plot BOD on the right y-axis with the same <span class="math notranslate nohighlight">\(x\)</span>-axis.</p></li>
 <li><p>Calculate the analytical solution of the Streeter-Phelps equation, and compare whether your numerical solution collapse onto the analytical solution curve. Plot the comparison in your figure 2.</p></li>
@@ -488,11 +498,11 @@ flow velocity <span class="math notranslate nohighlight">\(u\)</span> = 0.4 m/s.
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="particle_settling2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="rating_curve.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Particle Settling in Water (II)</p>
+            <p class="prev-next-title">Rating curve for stream discharge and hydrographs</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="BOD2.html" title="next page">

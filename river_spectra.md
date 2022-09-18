@@ -64,7 +64,7 @@ plt.yscale('log')
 The above plot is called periodogram, which is essentially the spectral density (or power) of the signal:
 
 
-```{admonition} Box question 1
+```{admonition} In-class exercise
 In your own plot, observe two variables: (1) the frequency of the peak spectral density (power), and (2) the maximal frequency on the $x$-axis, i.e., the maximal resolved frequency in the data. Change the sample rate in your code, do you observe changes in the above two variables in your plot?
 ```
 
@@ -76,12 +76,12 @@ u = u + u_noise
 ```
 
 
-```{admonition} Box question 2
+```{admonition} In-class exercise
 Plot the new data set (u vs. t), and repeat spectral analysis. What difference do you observe in your periodogram plot?  
 ```
 
 
-```{admonition} Box question 3
+```{admonition} In-class exercise
 Let's superimpose a secondary signal $u_2 = 0.5 A \sin(2\pi f t)$ with frequency of $f=5$ Hz to the data after adding noise, so that the new data $u_n = u + u_2$,  plot $u_n$ vs. $t$ and perform a spectral analysis to the new data.
 ```
 

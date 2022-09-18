@@ -8,11 +8,11 @@ Settling of sediment particles are an important physical process to the sediment
 
 The velocity ($W$) of a single particle settling in water can be predicted by the equilibrium between its gravity, buoyancy, and drag forces, where gravitational force is $F_G = \rho_p g V$ (downward), buoyancy force $F_B = \rho gV$ (upward), and drag force $F_D$ (upward). When the particle is very small, the drag force is related to the viscosity of the water $\mu$, particle size, and the settling velocity, $F_D = 3\pi\mu D W$. In fluid mechanics, we call this the Stokes regime, and the drag is call Stokes drag. Once we know the particle size, the settling velocity can be easily calculated by applying free body diagram to the sediment particle.
 
-```{admonition} Box question 1
+```{admonition} In-class exercise
 Derive the equation for the settling velocity, and write a small program to calculate the settling velocity of sand particles with diameter ranging from 1 $\mu$m to 100 $\mu$m (taking $\rho_p = 1600$ kg/m$^3$, $\rho = 1000$ kg/m$^3$, $g = 9.81$ m/s$^2$, $\mu = \nu \rho = 1.0\times10^{-3}$ Pa s). Plot the settling velocity vs. sand diameter with appropriate label and units.
 ```
 
-```{admonition} Box question 2
+```{admonition} In-class exercise
 Box question 2: Here we restrict the sand particle to be tiny because we want to ensure the particle within the Stokes regime, i.e., $Re < 1$. In your code, add a few lines to calculate Reynolds number and check if Re in the above question is within the Stokes regime.
 ```
 ```{tip}

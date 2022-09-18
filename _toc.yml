@@ -7,6 +7,7 @@ chapters:
 - file: howto
 - file: particle_settling1
 - file: particle_settling2
+- file: rating_curve
 - file: BOD1
 - file: BOD2
 - file: river_spectra

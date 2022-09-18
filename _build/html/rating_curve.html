@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Particle Settling in Water (II) &#8212; Data Analysis in Water Resource Engineering</title>
+    <title>Rating curve for stream discharge and hydrographs &#8212; Data Analysis in Water Resource Engineering</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Rating curve for stream discharge and hydrographs" href="rating_curve.html" />
-    <link rel="prev" title="Particle Settling in Water (I)" href="particle_settling1.html" />
+    <link rel="next" title="Water quality modeling - BOD in rivers (I)" href="BOD1.html" />
+    <link rel="prev" title="Particle Settling in Water (II)" href="particle_settling2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,13 +126,13 @@ const thebe_selector_output = ".output, .cell_output"
    Particle Settling in Water (I)
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="particle_settling2.html">
    Particle Settling in Water (II)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rating_curve.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Rating curve for stream discharge and hydrographs
   </a>
  </li>
@@ -202,6 +202,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/rating_curve.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -241,7 +270,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fparticle_settling2.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frating_curve.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -269,7 +298,24 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/particle_settling2.md"
+        <a href="_sources/rating_curve.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/rating_curve.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -334,13 +380,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#theory">
-   Theory
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#take-home-work">
-   Take-home work
+  <a class="reference internal nav-link" href="#hinkson-creek-at-columbia-mo">
+   Hinkson Creek at Columbia, MO
   </a>
  </li>
 </ul>
@@ -352,7 +393,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Particle Settling in Water (II)</h1>
+                <h1>Rating curve for stream discharge and hydrographs</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -368,13 +409,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#theory">
-   Theory
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#take-home-work">
-   Take-home work
+  <a class="reference internal nav-link" href="#hinkson-creek-at-columbia-mo">
+   Hinkson Creek at Columbia, MO
   </a>
  </li>
 </ul>
@@ -387,51 +423,32 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="particle-settling-in-water-ii">
-<h1>Particle Settling in Water (II)<a class="headerlink" href="#particle-settling-in-water-ii" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="rating-curve-for-stream-discharge-and-hydrographs">
+<h1>Rating curve for stream discharge and hydrographs<a class="headerlink" href="#rating-curve-for-stream-discharge-and-hydrographs" title="Permalink to this headline">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
-<p>In last computer lab, we studied the settling velocity of a sediment particle in water using several empirical equations. You probably have found out that it was not very convenient if we want to plot the settling velocity of a sand particle versus its diameter from micron to centimeter levels. In this lab, we will write our own settling velocity calculator for a sediment particle.</p>
-<figure class="align-default" id="diagram">
-<a class="reference internal image-reference" href="_images/diagram.jpg"><img alt="_images/diagram.jpg" src="_images/diagram.jpg" style="height: 200px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Free body diagram of a sediment particle settling in water.</span><a class="headerlink" href="#diagram" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p>Hydrographs of a river or a stream is important hydrological information that describe the time series of discharge at a specific location. However, it is challenging to obtain field measurements of stream discharges over time. To obtain indirect measurements, USGS monitors the stream stages which can be used to calculate discharges through a rating curve method that is developed for that specific stream. In this lab module, we will examine the field data at a stream to develop the rating curve.</p>
 </section>
-<section id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
-<p>From the previous lab, we have known that the equilibrium stage of a particle settling in the water can be balanced by gravitational force, buoyancy force, and drag force (see Fig. <a class="reference internal" href="#diagram"><span class="std std-numref">Fig. 1</span></a>). Hence, we can easily derive:</p>
-<div class="math notranslate nohighlight" id="equation-gov">
-<span class="eqno">(5)<a class="headerlink" href="#equation-gov" title="Permalink to this equation">#</a></span>\[W = \sqrt{\frac{2(\rho_p-\rho)gV}{\rho C_DA}}\]</div>
-<p>Here, the drag coefficient <span class="math notranslate nohighlight">\(C_D\)</span> is a function of Reynolds number:</p>
-<div class="math notranslate nohighlight" id="equation-c-d">
-<span class="eqno">(6)<a class="headerlink" href="#equation-c-d" title="Permalink to this equation">#</a></span>\[\begin{split}C_D = \begin{cases}
-\frac{24}{Re} &amp; Re \le 1 \\
-\frac{24}{Re}(1+0.15Re^{0.687}) &amp; 1 &lt; Re \le 1000 \\
-   0.44 &amp; Re&gt;1000
-\end{cases}\end{split}\]</div>
-<p>where Reynolds number is <span class="math notranslate nohighlight">\(Re = d_p W/\nu\)</span> with <span class="math notranslate nohighlight">\(\nu\)</span> being kinematic viscosity of water.</p>
-<p>In Eq. <a class="reference internal" href="#equation-gov">(5)</a>, you will find the settling velocity <span class="math notranslate nohighlight">\(W\)</span> appears on both sides of the equation. We will need solve for <span class="math notranslate nohighlight">\(W\)</span> using iterative approaches (with an initial guess value). “Scipy” is a Python library used for scientific computing and technical computing, which is very useful for engineers. I recommend that you use “fsolve” to solve the non-linear equation <a class="reference internal" href="#equation-gov">(5)</a>.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>You might want to google <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scipy.optimize</span> <span class="pre">import</span> <span class="pre">fsolve</span></code> to find out how to use <code class="docutils literal notranslate"><span class="pre">fsolve</span></code></p>
+<section id="hinkson-creek-at-columbia-mo">
+<h2>Hinkson Creek at Columbia, MO<a class="headerlink" href="#hinkson-creek-at-columbia-mo" title="Permalink to this headline">#</a></h2>
+<p>Here is the USGS site that publish water data: <a class="reference external" href="https://waterdata.usgs.gov/nwis/rt">https://waterdata.usgs.gov/nwis/rt</a>. Let’s click the map and select Hinkson Creek close to the University of Missouri campus. Here is the website for the Hinkson Creek site: <a class="reference external" href="https://waterdata.usgs.gov/nwis/uv?06910230">https://waterdata.usgs.gov/nwis/uv?06910230</a>. You can navigate to ‘Summary of all available data for this site’ and then ‘Field measurements’ to access all field collected data at this site.</p>
+<p>Let’s download the data. Click ‘Reselect output format’ in the output format table and specify the data period and other formating parameters. Here is the direct link: <a class="reference external" href="https://waterdata.usgs.gov/nwis/measurements?site_no=06910230&amp;agency_cd=USGS&amp;format=brief_list">https://waterdata.usgs.gov/nwis/measurements?site_no=06910230&amp;agency_cd=USGS&amp;format=brief_list</a></p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
+<p>Let’s select the data from 2000-01-01 until now and choose ‘save to file’. Please perform some data cleaning and keep two columns: stage (ft) and discharge (cfs).</p>
 </div>
-</section>
-<section id="take-home-work">
-<h2>Take-home work<a class="headerlink" href="#take-home-work" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
-<li><p>Write your own settling velocity calculator to calculate the settling velocity of a sediment particle in water. Your function should take the following arguments: <span class="math notranslate nohighlight">\(\rho_p\)</span>, <span class="math notranslate nohighlight">\(d_p\)</span>, i.e,, density and diameter of the sediment.</p></li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Use the following constant parameter in your calculator:
-water density <span class="math notranslate nohighlight">\(\rho = 1000\)</span> kg/m<span class="math notranslate nohighlight">\(^3\)</span>; water viscosity <span class="math notranslate nohighlight">\(\nu = 1\times10^{-6}\)</span> m/s<span class="math notranslate nohighlight">\(^2\)</span>. Assume spherical shape for all particles.</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
+<p>Please download the data, and plot the relationship between stream stage and discharge using scatter plot.</p>
 </div>
-<ol class="simple">
-<li><p>Plot the setting velocity versus sediment diameter from 1 <span class="math notranslate nohighlight">\(\mu\)</span>m to 1 mm using your new calculator.</p></li>
-<li><p>Compare the plots of the velocity data using your previous codes for Equation (2) in <a class="reference internal" href="particle_settling1.html"><span class="doc std std-doc">Particle settling in water (I)</span></a> along with today’s new plot.</p></li>
-</ol>
+<p>A general relationship between discharge and stage can be described by a power-law equation:</p>
+<div class="math notranslate nohighlight" id="equation-rating1">
+<span class="eqno">(7)<a class="headerlink" href="#equation-rating1" title="Permalink to this equation">#</a></span>\[Q = a D^b\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q\)</span> is discharge, <span class="math notranslate nohighlight">\(D\)</span> is stage, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are coefficients that can be obtained from curve fitting.</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
+<p>Please fit the rating curve equation (Eq.<a class="reference internal" href="#equation-rating1">(7)</a>) and determine coefficients <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. Plot the fitted curve on top of the data in the same figure.</p>
+</div>
 </section>
 </section>
 
@@ -462,17 +479,17 @@ water density <span class="math notranslate nohighlight">\(\rho = 1000\)</span> 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="particle_settling1.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="particle_settling2.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Particle Settling in Water (I)</p>
+            <p class="prev-next-title">Particle Settling in Water (II)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="rating_curve.html" title="next page">
+    <a class='right-next' id="next-link" href="BOD1.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Rating curve for stream discharge and hydrographs</p>
+        <p class="prev-next-title">Water quality modeling - BOD in rivers (I)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

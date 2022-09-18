@@ -22,7 +22,7 @@ If we have a following BOD data set measured at various locations of a stream wi
 :width: 200 px
 ```
 
-```{admonition} Box question 1
+```{admonition} In-class exercise
 Plot the BOD concentration as a function of $x$ using above data, and determine the degradation rate of BOD in the stream. The mean velocity of the stream is 0.4 m/s.
 ```{hint}
 You might need `numpy.polyfit` function or least-square regression function `numpy.linalg.lstsq`

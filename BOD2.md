@@ -97,7 +97,7 @@ def bc2(ya, yb):
 
 The first boundary condition `bc1` is for $x<0$ and `bc2` is for $x>0$. You may see $L_0$ in the second term of `bc1` and in the first term of `bc2`. They are the source locations which represent the right hand side boundary for $x<0$ and the left hand side boundary for $x>0$.
 
-```{admonition} Box question 1
+```{admonition} In-class exercise
 Write your own program to solve this problem with the help of the above given codes.
 ```{hint} Since we can not define infinity in the program, let's select $-100$ miles and 500 miles as upstream and downstream infinity locations where the pollution from wastewater can not be detected (You can later change the left and right boundary and re-run your program to verify whether these values make sense).
 

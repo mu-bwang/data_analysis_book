@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spectral analysis of river discharge data" href="river_spectra.html" />
     <link rel="prev" title="Water quality modeling - BOD in rivers (I)" href="BOD1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -131,6 +132,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="rating_curve.html">
+   Rating curve for stream discharge and hydrographs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="BOD1.html">
    Water quality modeling - BOD in rivers (I)
   </a>
@@ -138,6 +144,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Water quality modeling - BOD in rivers (II)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="river_spectra.html">
+   Spectral analysis of river discharge data
   </a>
  </li>
 </ul>
@@ -452,13 +463,13 @@ title="Print to PDF"
 <h2>BOD-DO deficit equations<a class="headerlink" href="#bod-do-deficit-equations" title="Permalink to this headline">#</a></h2>
 <p>The advection-diffusion process of DO and BOD variation is controlled by a set of partial differential equations (PDE), which can be simplified to be a set of second-order ordinary differential equations (ODE):</p>
 <div class="math notranslate nohighlight" id="equation-gov1">
-<span class="eqno">(12)<a class="headerlink" href="#equation-gov1" title="Permalink to this equation">#</a></span>\[E\frac{d^2 L}{dx^2} - u\frac{dL}{dx} - k_d L = 0\]</div>
+<span class="eqno">(13)<a class="headerlink" href="#equation-gov1" title="Permalink to this equation">#</a></span>\[E\frac{d^2 L}{dx^2} - u\frac{dL}{dx} - k_d L = 0\]</div>
 <div class="math notranslate nohighlight" id="equation-gov2">
-<span class="eqno">(13)<a class="headerlink" href="#equation-gov2" title="Permalink to this equation">#</a></span>\[E\frac{d^2 D}{dx^2} - u\frac{dD}{dx} - k_a D + K_d L = 0\]</div>
+<span class="eqno">(14)<a class="headerlink" href="#equation-gov2" title="Permalink to this equation">#</a></span>\[E\frac{d^2 D}{dx^2} - u\frac{dD}{dx} - k_a D + K_d L = 0\]</div>
 <p>where <span class="math notranslate nohighlight">\(E\)</span> is longitudinal dispersion coefficient.</p>
 <p>Some other important parameters in this system include: river discharge <span class="math notranslate nohighlight">\(Q\)</span>, mass discharge in wastewater (pollutant source) <span class="math notranslate nohighlight">\(W\)</span>, BOD concentration at the source <span class="math notranslate nohighlight">\(L_0\)</span>. They are connected through this equation:</p>
 <div class="math notranslate nohighlight" id="equation-l0">
-<span class="eqno">(14)<a class="headerlink" href="#equation-l0" title="Permalink to this equation">#</a></span>\[L_0 = \frac{W}{Qm_1}\]</div>
+<span class="eqno">(15)<a class="headerlink" href="#equation-l0" title="Permalink to this equation">#</a></span>\[L_0 = \frac{W}{Qm_1}\]</div>
 <p>with <span class="math notranslate nohighlight">\(m_1 = \sqrt{1+\frac{4k_d E}{u^2}}\)</span>.</p>
 </section>
 <section id="solving-bod-equation">
@@ -472,7 +483,7 @@ title="Print to PDF"
 <li><p><span class="math notranslate nohighlight">\(u\)</span> = 3.57 mi/day (mean tidal velocity)</p></li>
 <li><p><span class="math notranslate nohighlight">\(W/Q\)</span> = 18.5 mg/L (wastewater mass discharge / flow discharge)</p></li>
 </ul>
-<p>To find out the relationship between BOD concentration and location (<span class="math notranslate nohighlight">\(L\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span>) at both upstream and downstream of the source (<span class="math notranslate nohighlight">\(-10\)</span> mi <span class="math notranslate nohighlight">\(&lt; x &lt; 50\)</span> mi), we will need to solve Eq. <a class="reference internal" href="#equation-gov1">(12)</a> with the following boundary condition:</p>
+<p>To find out the relationship between BOD concentration and location (<span class="math notranslate nohighlight">\(L\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span>) at both upstream and downstream of the source (<span class="math notranslate nohighlight">\(-10\)</span> mi <span class="math notranslate nohighlight">\(&lt; x &lt; 50\)</span> mi), we will need to solve Eq. <a class="reference internal" href="#equation-gov1">(13)</a> with the following boundary condition:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}L = \begin{cases}
 	0 &amp; \textrm{for } x=-\infty \\
@@ -480,7 +491,7 @@ title="Print to PDF"
   0 &amp; \textrm{for } x=\infty
   \end{cases}\end{split}\]</div>
 <p>We will use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_bvp</span></code> to solve this boundary value problem (BVP). Here we have some incomplete instructions to get it started. However, you still need to google it to find out how to use <code class="docutils literal notranslate"><span class="pre">solve_bvp</span></code>.</p>
-<p>Since we have a second-order ODE Eq. <a class="reference internal" href="#equation-gov1">(12)</a> for <span class="math notranslate nohighlight">\(L\)</span>, we can rewrite the second-order ODE to two first-order ODEs:</p>
+<p>Since we have a second-order ODE Eq. <a class="reference internal" href="#equation-gov1">(13)</a> for <span class="math notranslate nohighlight">\(L\)</span>, we can rewrite the second-order ODE to two first-order ODEs:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dL}{dx} = L_1\]</div>
 <div class="math notranslate nohighlight">
@@ -509,8 +520,8 @@ title="Print to PDF"
 </div>
 </div>
 <p>The first boundary condition <code class="docutils literal notranslate"><span class="pre">bc1</span></code> is for <span class="math notranslate nohighlight">\(x&lt;0\)</span> and <code class="docutils literal notranslate"><span class="pre">bc2</span></code> is for <span class="math notranslate nohighlight">\(x&gt;0\)</span>. You may see <span class="math notranslate nohighlight">\(L_0\)</span> in the second term of <code class="docutils literal notranslate"><span class="pre">bc1</span></code> and in the first term of <code class="docutils literal notranslate"><span class="pre">bc2</span></code>. They are the source locations which represent the right hand side boundary for <span class="math notranslate nohighlight">\(x&lt;0\)</span> and the left hand side boundary for <span class="math notranslate nohighlight">\(x&gt;0\)</span>.</p>
-<div class="admonition-box-question-1 admonition">
-<p class="admonition-title">Box question 1</p>
+<div class="admonition-in-class-exercise admonition">
+<p class="admonition-title">In-class exercise</p>
 <p>Write your own program to solve this problem with the help of the above given codes.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -608,6 +619,13 @@ title="Print to PDF"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Water quality modeling - BOD in rivers (I)</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="river_spectra.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Spectral analysis of river discharge data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

@@ -1,1 +1,3 @@
 # How to use this book
+
+This online book is designed for students to understand water resource engineering concepts using a series of hands-on exercises. The entire book consists of many modules, which cover relatively independent topics. Each module is designed in a style that fits to undergraduate class. Typically, there is a short introduction to the background knowledge, followed by several small tasks that students can work on in the class. I am expecting this to be an interactive learning process between students and the instructor. The end of each module is 'take-home works' so that students can explore more about the topic or applications.
